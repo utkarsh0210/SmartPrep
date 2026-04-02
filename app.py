@@ -31,7 +31,8 @@ with st.sidebar:
 # ====================== MAIN AREA ======================
 course_url = st.text_input(
     "NPTEL / SWAYAM Course Link",
-    value="https://onlinecourses.nptel.ac.in/noc26_cs61/course?user_email=gutkarsh9838@gmail.com"
+    placeholder="e.g. https://nptel.ac.in/courses/106/105/106105219/",
+    help="Paste the URL of the NPTEL course you want to prepare for."
 )
 
 col1, col2 = st.columns([1, 4])
@@ -97,4 +98,3 @@ if "course_data" in st.session_state:
         else:
             st.info("Click the button above to generate the summary.")
 
-st.caption("SmartCoursePrep • Built with clean architecture • Switch LLM only in .env + tutor.py")
