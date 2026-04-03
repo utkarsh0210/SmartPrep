@@ -19,7 +19,7 @@ def get_llm_call():
         def llm_call(prompt: str, temperature=DEFAULT_TEMPERATURE, max_tokens=DEFAULT_MAX_TOKENS):
             try:
                 response = client.chat.completions.create(
-                    model="llama3-70b-8192",
+                    model="llama-3.3-70b-versatile",
                     messages=[
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": prompt}
@@ -30,7 +30,7 @@ def get_llm_call():
                 return response.choices[0].message.content
             except Exception as e:
                 return f"Groq Error: {str(e)}"
-        return llm_call, "Groq (Llama3-70B)"
+        return llm_call, "Groq (llama-3.3-70b-versatile)"
 
     elif gemini_key and gemini_key.strip():
         import google.generativeai as genai
